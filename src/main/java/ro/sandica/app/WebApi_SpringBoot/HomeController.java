@@ -12,8 +12,7 @@ import ro.sandica.app.Helpers.UserService;
 public class HomeController {
 	
 	@Autowired
-	private UserService US;
-    
+	private UserService US; 
     
     @RequestMapping("/")
     @ResponseBody
