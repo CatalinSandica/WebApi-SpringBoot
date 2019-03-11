@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import ro.sandica.app.Entities.Car;
 
 
-@Service
+
 public class CarService implements CarServiceInterface{
 
 	@Autowired

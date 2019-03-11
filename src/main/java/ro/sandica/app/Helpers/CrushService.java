@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ro.sandica.app.Entities.Crush;
 
-@Service
+
 public class CrushService implements CrushServiceInterface {
 
 	@Autowired

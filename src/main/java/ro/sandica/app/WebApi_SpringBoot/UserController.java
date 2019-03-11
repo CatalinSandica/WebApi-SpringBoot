@@ -9,7 +9,7 @@ import ro.sandica.app.Entities.User;
 import ro.sandica.app.Helpers.UserService;
 
 @RestController
-public class HomeController {
+public class UserController {
 	
 	@Autowired
 	private UserService US; 
