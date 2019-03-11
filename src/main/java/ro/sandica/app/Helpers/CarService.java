@@ -1,33 +1,50 @@
 package ro.sandica.app.Helpers;
 
-import java.util.ArrayList;
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ro.sandica.app.Entities.Car;
 
 
+@Service
+public class CarService implements CarServiceInterface{
 
-public class CarService {
+	@Autowired
+	private CarsRepository CR;
 	
+	@Override
+	public Iterable<Car> findAllCars() {
+		// TODO Auto-generated method stub
+		return CR.findAll();
+	}
+
+	@Override
 	public String createCar(Car car) {
-		//create Car logic here
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public ArrayList<Car> getAll(){
-		ArrayList<Car> list = new ArrayList<Car>();
-		//get all Cars logic here
-		return list;
-	}
+
+	@Override
 	public String deleteCar(long id) {
-		//delete logic here
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public String updateCar(String carid) {
-		//update logic here
+
+	@Override
+	public String updateCar(Car car, String carid) {
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public Car getCarbyID(long id) {
-		Car car = new Car();
-		//get Car by id logic here
-		return car;
+
+	@Override
+	public Optional<Car> getCarbyID(long id) {
+		// TODO Auto-generated method stub
+		return CR.findById(id);
 	}
+	
+	
 }

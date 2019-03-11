@@ -1,31 +1,47 @@
 package ro.sandica.app.Helpers;
 
-import java.util.ArrayList;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ro.sandica.app.Entities.Crush;
 
-public class CrushService {
+@Service
+public class CrushService implements CrushServiceInterface {
 
+	@Autowired
+	private CrushRepository CREP;
+
+	@Override
+	public Iterable<Crush> findAllCrushes() {
+		// TODO Auto-generated method stub
+		return CREP.findAll();
+	}
+
+	@Override
 	public String createCrush(Crush crush) {
-		//create Crush logic here
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public ArrayList<Crush> getAll(){
-		ArrayList<Crush> list = new ArrayList<Crush>();
-		//get all crushses logic here
-		return list;
-	}
+
+	@Override
 	public String deleteCrush(long id) {
-		//delete logic here
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public String updateCrush(String Crushid) {
-		//update logic here
+
+	@Override
+	public String updateCrush(Crush crush, String crushid) {
+		// TODO Auto-generated method stub
 		return "OK";
 	}
-	public Crush getCrushbyID(long id) {
-		Crush crush = new Crush();
-		//get crush by id logic here
-		return crush;
+
+	@Override
+	public Optional<Crush> getCrushbyID(long id) {
+		// TODO Auto-generated method stub
+		return CREP.findById(id);
 	}
+	
 }

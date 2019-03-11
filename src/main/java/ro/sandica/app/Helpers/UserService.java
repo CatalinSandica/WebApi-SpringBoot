@@ -1,31 +1,39 @@
 package ro.sandica.app.Helpers;
 
-import java.util.ArrayList;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ro.sandica.app.Entities.User;
 
-public class UserService {
+@Service
+public class UserService implements UserServiceInterface{
+	@Autowired
+	private UsersRepository UR;
 	
 	public String createUser(User user) {
 		//create user logic here
 		return "OK";
 	}
-	public ArrayList<User> getAll(){
-		ArrayList<User> list = new ArrayList<User>();
-		//get all users logic here
-		return list;
-	}
+	
 	public String deleteUser(long id) {
 		//delete logic here
 		return "OK";
 	}
-	public String updateUser(String userid) {
+	public String updateUser(User user, String userid) {
 		//update logic here
 		return "OK";
 	}
-	public User getUserbyID(long id) {
-		User user = new User();
-		//get user by id logic here
-		return user;
+	
+	public Optional<User> getUserbyID(long id) {
+		return UR.findById(id);
+	}
+	
+	@Override
+	public Iterable<User> findAllUsers() {
+		// TODO Auto-generated method stub
+		return UR.findAll();
 	}
 }
