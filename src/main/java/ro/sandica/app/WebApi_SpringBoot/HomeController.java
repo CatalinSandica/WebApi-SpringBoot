@@ -14,13 +14,8 @@ public class HomeController {
 	@Autowired
 	private UserService US;
     
-    @RequestMapping("/")
-    @ResponseBody
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
     
-    @RequestMapping("/users")
+    @RequestMapping("/")
     @ResponseBody
     public Iterable<User> getAllUsers(){
     	return US.findAllUsers();
